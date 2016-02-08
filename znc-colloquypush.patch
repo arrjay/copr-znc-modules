@@ -1,0 +1,12 @@
+diff -uNr colloquypush-989bb187106be43e8e9946e82bcd9f2177d13ae5/znc/colloquy.cpp colloquypush-989bb187106be43e8e9946e82bcd9f2177d13ae5-1/znc/colloquy.cpp
+--- colloquypush-989bb187106be43e8e9946e82bcd9f2177d13ae5/znc/colloquy.cpp	2013-02-02 00:01:23.000000000 -0500
++++ colloquypush-989bb187106be43e8e9946e82bcd9f2177d13ae5-1/znc/colloquy.cpp	2016-02-07 22:05:07.145589595 -0500
+@@ -775,7 +775,7 @@
+ 		}
+ 
+ 		bool bRet = true;
+-		vector<CClient*>& vpClients = GetNetwork()->GetClients();
++		const vector<CClient*>& vpClients = GetNetwork()->GetClients();
+ 
+ 		// Cycle through all of the cached devices
+ 		for (map<CString, CDevice*>::iterator it = m_mspDevices.begin(); it != m_mspDevices.end(); it++) {
