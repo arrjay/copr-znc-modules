@@ -12,7 +12,7 @@ COMMITTER="RJ Bergeron <rbergero@gmail.com>"
 SPECDIR=$(rpm --eval '%{_specdir}')
 SOURCEDIR=$(rpm --eval '%{_sourcedir}')
 
-OUR_HASH=$(awk '$1 == "%global" && $2 == "hash" { print $3 }' bitlbee-facebook.spec)
+OUR_HASH=$(awk '$1 == "%global" && $2 == "hash" { print $3 }' znc-colloquypush.spec)
 THEIR_HASH=$(git --git-dir="${UPSTREAM_GIT}" rev-parse HEAD)
 
 if [ "${OUR_HASH}" != "${THEIR_HASH}" ] ; then
@@ -36,7 +36,7 @@ sed -i -e "s/%changelog/%changelog\\
 git --git-dir="${UPSTREAM_GIT}" archive --prefix="znc-colloquypush-${THEIR_HASH}/" --output="${SOURCEDIR}/znc-colloquypush-${shorthash}.tar.gz" HEAD
 
 # pack it
-#rpmbuild -bs "${SPECDIR}"/bitlbee-facebook.spec
+rpmbuild -bs "${SPECDIR}"/znc-colloquypush.spec
 
 # submit for build
 # copr-cli build bitlbee-facebook-mqtt ~/rpmbuild/SRPMS/bitlbee-facebook*.src.rpm
